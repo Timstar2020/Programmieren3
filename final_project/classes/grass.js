@@ -1,3 +1,5 @@
+import { updateCreaturePosition, findNeighbourPositions, random, int } from '..utils.js';
+
 class Grass {
 
     // Jede Klasse braucht einen Konstruktor

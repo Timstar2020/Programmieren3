@@ -1,3 +1,5 @@
+import { updateCreaturePosition, findNeighbourPositions, random, int } from '..utils.js';
+
 class MeatEater {
     // Jede Klasse braucht einen Konstruktor
     // Hier werden die Anfangswerte der Kreatur gesetzt

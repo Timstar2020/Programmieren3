@@ -1,9 +1,11 @@
-class patriot {
+import { updateCreaturePosition, findNeighbourPositions, random, int } from '..utils.js';
+
+class T90 {
     // Jede Klasse braucht einen Konstruktor
     // Hier werden die Anfangswerte der Kreatur gesetzt
     constructor() {
         this.stepCount = frameCount + 1; // Jede Kreatur braucht diese Zeile
-        this.color = "#525814";
+        this.color = "#0D3C08";
         this.delay = 0
         // Jede Kreatur braucht eine Farbe
         // Hier kannst du weitere Eigenschaften hinzufügen
@@ -13,9 +15,12 @@ class patriot {
     // Jede Kreatur braucht eine solche step() Methode!
     step() {
         let emptyPositions = findNeighbourPositions(this.row, this.col, 1, Object)
-        let commies = findNeighbourPositions(this.row, this.col, 5, Su35)
+        let capitalistpigs = findNeighbourPositions(this.row, this.col, 5, patriot)
+        let abrams = findNeighbourPositions(this.row, this.col, 5, Abrams)
+        capitalistpigs = capitalistpigs.concat(abrams)
+
         this.delay+=1
-        if (this.delay >= 50){
+        if (this.delay >= 70){
             if (emptyPositions.length >= 1) {
                 let emptyPosition = random(emptyPositions)
                 updateCreaturePosition(this, emptyPosition)
@@ -24,10 +29,10 @@ class patriot {
             // Um den Code zu organisieren, kannst du andere Methoden erstellen und von hier aus aufrufen
             // z.B. könntest du eine multiply() Methode erstellen, die aufgerufen wird, wenn die Energie ≥ 7 ist
             }
-            if (commies.length >= 1) {
-                let commiesgoboom = random(commies)
-                let row = commiesgoboom[0]
-                let col = commiesgoboom[1]
+            if (capitalistpigs.length >= 1) {
+                let capitalistpigsboom = random(capitalistpigs)
+                let row = capitalistpigsboom[0]
+                let col = capitalistpigsboom[1]
                 matrix[row][col] = new explosion()
             }
             if (this.fuel <= 0) {
